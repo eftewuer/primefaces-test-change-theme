@@ -11,9 +11,16 @@
         <h:outputStylesheet name="test.css" />
     </h:head>
     <h:body>
-
         <h1>#{testView.string}</h1>
+
+        <p:importEnum type="org.primefaces.test.MyThemes" var="MyThemes" />
+
         <h:form id="frmTest">
+            <p:selectOneMenu id="themeSelectMenu" var="theVar" style="width:165px;" >
+                <p:ajax process="@this" oncomplete="Primefaces.changeTheme($('#frmTest\\:themeSelectMenu_label').text());" />
+                <f:selectItems value="#{MyThemes.ALL_VALUES}" var="themeVar" itemLabel="#{themeVar.value}" itemValue="#{themeVar.value}" />
+                <p:column>#{theVar}</p:column>
+            </p:selectOneMenu>
 
         </h:form>
 
