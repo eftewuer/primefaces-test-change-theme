@@ -1,0 +1,1 @@
+# primefaces-test-change-theme
